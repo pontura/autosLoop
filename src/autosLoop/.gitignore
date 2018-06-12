@@ -1,0 +1,55 @@
+# =============== #
+# Unity generated #
+# =============== #
+Temp/
+Obj/
+UnityGenerated/
+Library/
+web/
+Assets/AssetStoreTools*
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Assets/Rooms/
+Assets/Resources/images/
+Assets/fonts/Chalet-NewYorkNineteenSixty.otf.meta
+Assets/fonts.meta
+Assets/fonts/Sqr721bc.pfm.meta
+Assets/fonts/Sqr721bc.PFB.meta
+Assets/images/map/Thumbs.db.meta
+Assets/images/ui/Thumbs.db.meta
+Assets/images/lose/Thumbs.db.meta
+Assets/models/Materials/ring07-Material #25.mat
+Assets/models/Materials/ring07-Material #25.mat.meta
+Assets/models/Materials/ring07-Material #26.mat
+Assets/models/Materials/ring07-Material #26.mat.meta
+Assets/models/Materials.meta
+Assets/models/boxer/Materials/Material #173.mat
+Assets/models/boxer/Materials/Material #173.mat.meta
+Assets/models/boxer/Materials/Material #31.mat
+Assets/models/boxer/Materials/Material #31.mat.meta
+Assets/models/animaciones/character.FBX
+Assets/models/animaciones/character.FBX.meta
+Assets/Plugins/iOS/Fabric/Crashlytics.framework/Crashlytics
