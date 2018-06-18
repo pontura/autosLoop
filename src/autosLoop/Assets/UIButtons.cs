@@ -17,7 +17,7 @@ public class UIButtons : MonoBehaviour {
 		{
 			UIButton newButton = Instantiate (button);
 			newButton.transform.SetParent (buttonsContainer);
-			newButton.Init (instrument.data);
+			newButton.Init(instrument.data);
 		}
 	}
 }

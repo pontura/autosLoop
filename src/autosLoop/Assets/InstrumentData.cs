@@ -9,6 +9,8 @@ public class InstrumentData {
 	public int id;
 	public types type;
 	public int size;
+	public string spriteName;
+
 	public enum types
 	{
 		BICI,

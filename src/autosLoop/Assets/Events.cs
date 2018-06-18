@@ -4,5 +4,5 @@ using System.Collections.Generic;
 
 public static class Events {
 
-	public static System.Action<int> OnAddPreviewRobot = delegate { };
+	public static System.Action<InstrumentData, int> OnInstrumentActive = delegate { };
 }
