@@ -20,4 +20,5 @@ public class UIButtons : MonoBehaviour {
 			newButton.Init(instrument.data);
 		}
 	}
+
 }

@@ -10,4 +10,11 @@ public class InstrumentsData : MonoBehaviour {
 	{
 		return all [id];
 	}
+	public Instrument GetInstrumentByData(InstrumentData data)
+	{
+		foreach (Instrument i in all)
+			if (data == i.data)
+				return i;
+		return null;
+	}
 }

@@ -9,34 +9,20 @@ public class Lane : MonoBehaviour {
 	public float speed;
 	public SlotsManager slotsManager;
 	int totalSlots = 18;
+
 	public void Init()
 	{
-		slotsManager.Init ();
-		StartMoveing ();
+		slotsManager.Init (id);
 	}
-	void StartMoveing()
+	public void StartMoving()
 	{
+		StopAllCoroutines ();
 		Vector3 pos = transform.localPosition;
 		pos.x =  -18 * direction;
 		transform.localPosition = pos;
 		pos.x = 0;
 		StartCoroutine (MoveOverSeconds(pos, 8));
 	}
-//	void Update () {
-//
-//		Vector2 pos = transform.localPosition;
-//
-//		print (Time.time + " pos: " + pos.x);
-//
-//		if (pos.x < 0 && direction == -1)
-//			pos.x = totalSlots;
-//		else if (pos.x > 0 && direction == 1)
-//			pos.x = -totalSlots;
-//		else
-//			pos.x += direction * Time.deltaTime * speed;
-//		
-//		transform.localPosition = pos;
-//	}
 	public IEnumerator MoveOverSeconds (Vector3 end, float seconds)
 	{
 		float elapsedTime = 0;
@@ -48,6 +34,5 @@ public class Lane : MonoBehaviour {
 			yield return new WaitForEndOfFrame();
 		}
 		transform.position = end;
-		StartMoveing ();
 	}
 }

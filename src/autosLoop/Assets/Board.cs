@@ -24,6 +24,5 @@ public class Board : MonoBehaviour {
 		instrumentsManager = GetComponent<InstrumentsManager> ();
 
 		lanesManager.Init ();
-		instrumentsManager.Init ();
 	}
 }

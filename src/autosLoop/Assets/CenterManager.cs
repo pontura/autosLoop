@@ -12,6 +12,10 @@ public class CenterManager : MonoBehaviour {
 	void Start () {
 		Events.OnInstrumentActive += OnInstrumentActive;
 	}
+	void Destroy()
+	{
+		Events.OnInstrumentActive -= OnInstrumentActive;
+	}
 
 	void OnInstrumentActive (InstrumentData data, int laneID) {
 		GameObject go;

@@ -357,6 +357,8 @@ MonoBehaviour:
     type: 1
     size: 2
     spriteName: auto2
+    audioName: loop_autito_2
+  laneID: 0
 --- !u!198 &198096113837024732
 ParticleSystem:
   m_ObjectHideFlags: 1

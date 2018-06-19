@@ -9,7 +9,7 @@ public class SlotsManager : MonoBehaviour {
 	public float screenWidth = 18;
 	public List<Slot> all;
 
-	public void Init()
+	public void Init(int laneID)
 	{
 		for (int a = 0; a < totalSlots*2; a++) {
 			float separation = a * (screenWidth / 8);
@@ -18,7 +18,7 @@ public class SlotsManager : MonoBehaviour {
 			Vector3 pos = new Vector3 (separation-(screenWidth/2), 0, 0);
 			newSlot.transform.localPosition = pos;
 			newSlot.transform.localEulerAngles = Vector3.zero;
-			newSlot.Init (a);
+			newSlot.Init (a,laneID);
 			all.Add (newSlot);
 		}
 	}
@@ -28,6 +28,10 @@ public class SlotsManager : MonoBehaviour {
 			if (slot.id == slotID)
 				return slot;
 		return null;
+	}
+	public void ResetColliders()
+	{
+		
 	}
 		
 }

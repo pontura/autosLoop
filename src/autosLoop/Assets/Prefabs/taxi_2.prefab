@@ -268,6 +268,8 @@ MonoBehaviour:
     type: 1
     size: 2
     spriteName: auto6
+    audioName: loop_taxi_2
+  laneID: 0
 --- !u!198 &198530814795881378
 ParticleSystem:
   m_ObjectHideFlags: 1

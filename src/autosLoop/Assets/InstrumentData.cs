@@ -10,6 +10,7 @@ public class InstrumentData {
 	public types type;
 	public int size;
 	public string spriteName;
+	public string audioName;
 
 	public enum types
 	{

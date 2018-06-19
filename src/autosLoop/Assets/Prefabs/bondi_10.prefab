@@ -449,6 +449,8 @@ MonoBehaviour:
     type: 2
     size: 4
     spriteName: bondi1
+    audioName: loop_bondi_10
+  laneID: 0
 --- !u!198 &198038444176072954
 ParticleSystem:
   m_ObjectHideFlags: 1

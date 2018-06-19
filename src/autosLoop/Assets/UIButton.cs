@@ -13,4 +13,8 @@ public class UIButton : MonoBehaviour {
 		Sprite sprite = Instantiate(Resources.Load<Sprite>("instruments/" + data.spriteName)) as Sprite;
 		image.sprite = sprite;
 	}
+	public void OnClicked()
+	{
+		Events.OnStartDragging (data);
+	}
 }

@@ -8,7 +8,7 @@ public class LanesManager : MonoBehaviour {
 
 	public void Init()
 	{
-		foreach (Lane lane in lanes)
+		foreach (Lane lane in lanes) 
 			lane.Init ();
 	}
 	public Lane GetLane(int id)
@@ -17,6 +17,11 @@ public class LanesManager : MonoBehaviour {
 			if (lane.id == id)
 				return lane;
 		return null;
+	}
+	public void Move()
+	{
+		foreach (Lane lane in lanes)
+			lane.StartMoving ();
 	}
 
 }
