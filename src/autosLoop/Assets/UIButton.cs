@@ -6,15 +6,14 @@ using UnityEngine.UI;
 public class UIButton : MonoBehaviour {
 
 	public InstrumentData data;
-	public Image image;
+	public RawImage image;
 
-	public void Init(InstrumentData data) {
+	public void Init(InstrumentData data, RenderTexture rt) {
 		this.data = data;
-		Sprite sprite = Instantiate(Resources.Load<Sprite>("instruments/" + data.spriteName)) as Sprite;
-		image.sprite = sprite;
+		image.texture = rt;
 	}
 	public void OnClicked()
 	{
-		Events.OnStartDragging (data);
+		Events.OnStartDragging (data, (RenderTexture)image.texture);
 	}
 }

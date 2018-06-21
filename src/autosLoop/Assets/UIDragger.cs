@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIDragger : MonoBehaviour {
 
 	InstrumentData data;
-	public Image image;
+	public RawImage image;
 	public Canvas myCanvas;
 	public GameObject draggerItem;
 
@@ -17,10 +17,11 @@ public class UIDragger : MonoBehaviour {
 	void OnDestroy () {
 		Events.OnStartDragging -= OnStartDragging;
 	}	
-	void OnStartDragging(InstrumentData data)
+	void OnStartDragging(InstrumentData data, RenderTexture imageTexture)
 	{
 		image.enabled = true;
-		AddAsset(data);
+		image.texture = imageTexture;
+		this.data = data;
 	}
 	void Update () {
 		if (data == null)
@@ -38,11 +39,6 @@ public class UIDragger : MonoBehaviour {
 		Vector2 pos;
 		RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
 		image.transform.position = myCanvas.transform.TransformPoint(pos);
-	}
-	void AddAsset(InstrumentData data) {
-		this.data = data;
-		Sprite sprite = Instantiate(Resources.Load<Sprite>("instruments/" + data.spriteName)) as Sprite;
-		image.sprite = sprite;
 	}
 	void Release()
 	{
