@@ -28,15 +28,19 @@ public class InstrumentsManager : MonoBehaviour {
 
 		//agrega 2 por lane:
 		int slotID = slotActive.id;
-		if (slotID >= 8)
-			slotID -= 8;
+		int duplicatedSlot = 8 / slotActive.slotSize;
+		if (slotID >= duplicatedSlot)
+			slotID -= duplicatedSlot;
 		
 		AddInstrumentToSlot (data, slotActive.laneID, slotID);
+
+		slotActive = null;
 	}
 	public void AddInstrumentToSlot(InstrumentData data,  int laneID,int slotID)
 	{
 		AddInstrumentToSlotReal (data, laneID, slotID);
-		AddInstrumentToSlotReal (data, laneID, slotID+8);	
+		int duplicatedSlot = 8 / slotActive.slotSize;
+		AddInstrumentToSlotReal (data, laneID, slotID+duplicatedSlot);	
 	}
 	void AddInstrumentToSlotReal(InstrumentData data, int laneID, int slotID)
 	{

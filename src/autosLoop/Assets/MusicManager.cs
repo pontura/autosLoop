@@ -30,7 +30,6 @@ public class MusicManager : MonoBehaviour {
 
 	void OnInstrumentActive (InstrumentData data, int laneID) 
 	{
-		print ("OnInstrumentActive " + Time.time);
 		switch (laneID) {
 		case 1:
 			lane1Sound = data.audioName;
@@ -48,20 +47,23 @@ public class MusicManager : MonoBehaviour {
 	}
 	public void OnTimerTick()
 	{
+		float delayDouble = 0.4f;
+		float delaySingle = 0.4f;
 
 		if (lane1Sound != "")
-			PlayClip(lane1AudioSource, lane1Sound);
+			StartCoroutine( PlayClip(delaySingle, lane1AudioSource, lane1Sound));
 		if (lane2Sound != "")
-			PlayClip(lane2AudioSource, lane2Sound);
+			StartCoroutine(PlayClip(delaySingle, lane2AudioSource, lane2Sound));
 		if (lane3Sound != "")
-			PlayClip(lane3AudioSource, lane3Sound);
+			StartCoroutine(PlayClip(delaySingle, lane3AudioSource, lane3Sound));
 		if (lane4Sound != "")
-			PlayClip(lane4AudioSource, lane4Sound);
+			StartCoroutine(PlayClip(delayDouble, lane4AudioSource, lane4Sound));
 
 		lane1Sound = lane2Sound = lane3Sound= lane4Sound = "";
 	}
- 	void PlayClip(AudioSource audioSource, string clipName)
+	IEnumerator PlayClip(float delay, AudioSource audioSource, string clipName )
 	{
+		yield return new WaitForSeconds (delay);
 		audioSource.clip = Resources.Load<AudioClip>("Audio/" + clipName);
 		audioSource.PlayOneShot(audioSource.clip);
 	}

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIDragger : MonoBehaviour {
 
-	InstrumentData data;
+	public InstrumentData data;
 	public RawImage image;
 	public Canvas myCanvas;
 	public GameObject draggerItem;
@@ -17,6 +17,10 @@ public class UIDragger : MonoBehaviour {
 	void OnDestroy () {
 		Events.OnStartDragging -= OnStartDragging;
 	}	
+	public void OnClickInstrumentInScene(InstrumentData data)
+	{
+		print ("OnClickInstrumentInScene " + data);
+	}
 	void OnStartDragging(InstrumentData data, RenderTexture imageTexture)
 	{
 		image.enabled = true;
@@ -42,7 +46,12 @@ public class UIDragger : MonoBehaviour {
 	}
 	void Release()
 	{
-		Events.OnAddInstrument(data);
+		if (data == null)
+			return;
+		
+		if (draggerItem.transform.position.y>-3)
+			Events.OnAddInstrument(data);
+		
 		draggerItem.transform.position = new Vector3 (1000, 0, 0);
 		image.enabled = false;
 		data = null;

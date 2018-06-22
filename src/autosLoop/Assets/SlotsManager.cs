@@ -7,15 +7,17 @@ public class SlotsManager : MonoBehaviour {
 	public Slot slot;
 	public int totalSlots;
 	public float screenWidth = 18;
+	public int slotSize = 1;
 	public List<Slot> all;
+	public float offset;
 
 	public void Init(int laneID)
 	{
 		for (int a = 0; a < totalSlots*2; a++) {
-			float separation = a * (screenWidth / 8);
+			float separation = a * (screenWidth / 8) * slotSize;
 			Slot newSlot = Instantiate (slot);
 			newSlot.transform.SetParent (transform);
-			Vector3 pos = new Vector3 (separation-(screenWidth/2), 0, 0);
+			Vector3 pos = new Vector3 (separation-(screenWidth/2) +offset, 0, 0);
 			newSlot.transform.localPosition = pos;
 			newSlot.transform.localEulerAngles = Vector3.zero;
 			newSlot.Init (a,laneID);

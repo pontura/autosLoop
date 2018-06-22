@@ -7,6 +7,7 @@ public class Board : MonoBehaviour {
 	static Board mInstance = null;
 	public LanesManager lanesManager;
 	public InstrumentsManager instrumentsManager;
+	public UIDragger uiDragger;
 
 	public static Board Instance
 	{
