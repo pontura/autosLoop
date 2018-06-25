@@ -13,7 +13,17 @@ public class Instrument : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other)
 	{
+		print (other.name);
 		Events.OnInstrumentActive (data, laneID);
+		Invoke("PlayAnim", 0.8f);
+	}
+	public void PlayAnim()
+	{
+		GetComponent<Animator> ().Play ("play");
+	}
+	public void Idle()
+	{
+		GetComponent<Animator> ().Play ("idle");
 	}
 
 }

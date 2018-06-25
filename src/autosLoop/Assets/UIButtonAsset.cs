@@ -8,12 +8,14 @@ public class UIButtonAsset : MonoBehaviour {
 	public int id;
 	public RenderTexture renderTexture;
 	public Camera cam;
+	Instrument instrument;
 
 	public void Init(Instrument i)
 	{
-		Instrument newGO = Instantiate (i);
-		newGO.transform.SetParent (container);
-		newGO.transform.localPosition = Vector3.zero;
+		instrument = Instantiate (i);
+		instrument.transform.SetParent (container);
+		instrument.transform.localPosition = Vector3.zero;
+		instrument.Idle ();
 		SetRenderTexture ();
 	}
 	public void SetRenderTexture()

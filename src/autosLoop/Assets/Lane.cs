@@ -19,6 +19,7 @@ public class Lane : MonoBehaviour {
 		StopAllCoroutines ();
 		Vector3 pos = transform.localPosition;
 		pos.x =  -18 * direction;
+		pos.z = -(float)id / 5;
 		transform.localPosition = pos;
 		pos.x = 0;
 		StartCoroutine (MoveOverSeconds(pos, 8));
