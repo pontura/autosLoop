@@ -6,6 +6,7 @@ public class Instrument : MonoBehaviour {
 
 	public InstrumentData data;
 	public int laneID;
+	bool playing;
 
 	public void Init(int laneID)
 	{
@@ -13,13 +14,20 @@ public class Instrument : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		print (other.name);
+		if (playing)
+			return;
+		Invoke ("Reset", 3);
+		playing = true;
 		Events.OnInstrumentActive (data, laneID);
 		Invoke("PlayAnim", 0.8f);
 	}
 	public void PlayAnim()
 	{
 		GetComponent<Animator> ().Play ("play");
+	}
+	void Reset()
+	{
+		playing = false;
 	}
 	public void Idle()
 	{

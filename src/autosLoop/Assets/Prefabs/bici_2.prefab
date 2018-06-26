@@ -99,6 +99,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4477531371122584}
   - component: {fileID: 95173569761998280}
+  - component: {fileID: 114004744253361138}
+  - component: {fileID: 65519035351825196}
   m_Layer: 0
   m_Name: bici_2
   m_TagString: Untagged
@@ -301,7 +303,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1439733059741826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.32, y: 3.03, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4724068819031220}
@@ -370,6 +372,18 @@ Transform:
   m_Father: {fileID: 4477531371122584}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &65519035351825196
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1439733059741826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 2}
+  m_Center: {x: 1.66, y: 0.97, z: 0}
 --- !u!95 &95173569761998280
 Animator:
   serializedVersion: 3
@@ -387,6 +401,24 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114004744253361138
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1439733059741826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac215d7b95151864c8ab54dc059580be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    id: 0
+    type: 0
+    size: 1
+    spriteName: 
+    audioName: loop_bici_2
+  laneID: 0
 --- !u!198 &198616192067104386
 ParticleSystem:
   m_ObjectHideFlags: 1

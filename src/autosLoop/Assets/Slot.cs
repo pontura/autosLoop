@@ -43,9 +43,9 @@ public class Slot : MonoBehaviour {
 		Color c = spriteRenderer.color;
 
 		if (isOver) 
-			c.a = 1;
+			c.a = 0.5f;
 		else
-			c.a = 0.15f;
+			c.a = 1;
 			
 		spriteRenderer.color = c;
 	}
