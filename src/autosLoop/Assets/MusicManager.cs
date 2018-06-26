@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour {
 
-	public AudioClip loop1;
-	public AudioClip loop2;
-	public AudioClip loop3;
-	public AudioClip loop4;
+	public AudioClip pick;
+	public AudioClip drop;
 
 	public string lane1Sound;
 	public string lane2Sound;
@@ -19,15 +17,32 @@ public class MusicManager : MonoBehaviour {
 	public AudioSource lane3AudioSource;
 	public AudioSource lane4AudioSource;
 
+	public AudioSource uiAudioSource;
+
 	void Start()
 	{
 		Events.OnInstrumentActive += OnInstrumentActive;
+		Events.OnPick += OnPick;
+		Events.OnDrop += OnDrop;
 	}
 	void Destroy()
 	{
 		Events.OnInstrumentActive -= OnInstrumentActive;
+		Events.OnPick -= OnPick;
+		Events.OnDrop -= OnDrop;
 	}
-
+	void OnPick()
+	{
+		PlayUISFX (pick);
+	}
+	void OnDrop()
+	{
+		PlayUISFX (drop);
+	}
+	void PlayUISFX(AudioClip ac)
+	{
+		uiAudioSource.PlayOneShot(ac);
+	}
 	void OnInstrumentActive (InstrumentData data, int laneID) 
 	{
 		switch (laneID) {

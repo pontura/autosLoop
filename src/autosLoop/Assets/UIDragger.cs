@@ -51,7 +51,9 @@ public class UIDragger : MonoBehaviour {
 		
 		if (draggerItem.transform.position.y>-3)
 			Events.OnAddInstrument(data);
-		
+
+		Events.OnDrop ();
+
 		draggerItem.transform.position = new Vector3 (1000, 0, 0);
 		image.enabled = false;
 		data = null;

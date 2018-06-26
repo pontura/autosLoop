@@ -14,6 +14,7 @@ public class UIButton : MonoBehaviour {
 	}
 	public void OnClicked()
 	{
+		Events.OnPick ();
 		Events.OnStartDragging (data, (RenderTexture)image.texture);
 	}
 }
