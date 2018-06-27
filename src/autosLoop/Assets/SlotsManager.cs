@@ -13,7 +13,7 @@ public class SlotsManager : MonoBehaviour {
 
 	public void Init(int laneID)
 	{
-		for (int a = 0; a < totalSlots*2; a++) {
+		for (int a = 0; a < totalSlots; a++) {
 			float separation = a * (screenWidth / 8) * slotSize;
 			Slot newSlot = Instantiate (slot);
 			newSlot.transform.SetParent (transform);

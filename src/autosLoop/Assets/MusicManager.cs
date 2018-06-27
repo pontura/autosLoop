@@ -82,20 +82,6 @@ public class MusicManager : MonoBehaviour {
 		audioSource.clip = Resources.Load<AudioClip>("Audio/" + clipName);
 		audioSource.PlayOneShot(audioSource.clip);
 	}
-//	void PlayClip(AudioSource audioSource, string clipName)
-//	{
-//		
-//		StartCoroutine (OnCreateAudioSource (clipName));	
-//	}
-//
-//	IEnumerator OnCreateAudioSource (string clipName)
-//	{ 
-//		AudioSource audio = gameObject.AddComponent<AudioSource> ();
-//		audio.clip = Resources.Load<AudioClip>("Audio/" + clipName);
-//		audio.Play();
-//		yield return new WaitForSeconds(audio.clip.length);
-//		Destroy (audio);
-//	}
 
 
 

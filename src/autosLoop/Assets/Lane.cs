@@ -9,19 +9,28 @@ public class Lane : MonoBehaviour {
 	public float speed;
 	public SlotsManager slotsManager;
 	int totalSlots = 18;
-
+	public float startingPosition;
+	public float toPosition;
 	public void Init()
 	{
 		slotsManager.Init (id);
+		startingPosition = 18 * direction;
+		toPosition = -18 * direction;
+		Vector3 pos = transform.localPosition;
+		pos.z = -(float)id / 5;
+		transform.localPosition = pos;
 	}
 	public void StartMoving()
 	{
+		return;
 		StopAllCoroutines ();
 		Vector3 pos = transform.localPosition;
-		pos.x =  -18 * direction;
-		pos.z = -(float)id / 5;
+		if (direction == 1 && transform.localPosition.x < -15)
+			pos.x = startingPosition;
+		if (direction == -1 && transform.localPosition.x > 15)
+			pos.x = startingPosition;		
 		transform.localPosition = pos;
-		pos.x = 0;
+		pos.x = transform.localPosition.x+toPosition;
 		StartCoroutine (MoveOverSeconds(pos, 8));
 	}
 	public IEnumerator MoveOverSeconds (Vector3 end, float seconds)

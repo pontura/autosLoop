@@ -27,17 +27,25 @@ public class UIDragger : MonoBehaviour {
 		image.texture = imageTexture;
 		this.data = data;
 	}
+	public bool isScreenTouched;
 	void Update () {
-		if (data == null)
-			return;
+
+		if (Input.GetMouseButtonDown (0))
+			isScreenTouched = true;
+		
+		//print (Input.mousePosition);
+
+		//if (data == null)
+		//	return;
 
 		if (Input.GetMouseButtonUp (0)) {
+			isScreenTouched = false;
 			Release ();
 			return;
 		}
 
 		Vector3 mousePos = Input.mousePosition;
-		mousePos.z = 0;
+		mousePos.z = 1;
 		draggerItem.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
 
 		Vector2 pos;
