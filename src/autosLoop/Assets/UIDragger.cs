@@ -12,10 +12,13 @@ public class UIDragger : MonoBehaviour {
 
 	void Start () {
 		Events.OnStartDragging += OnStartDragging;
+		Events.OnDragOver += OnDragOver;
 		image.enabled = false;
 	}
 	void OnDestroy () {
 		Events.OnStartDragging -= OnStartDragging;
+		Events.OnDragOver -= OnDragOver;
+
 	}	
 	public void OnClickInstrumentInScene(InstrumentData data)
 	{
@@ -27,16 +30,12 @@ public class UIDragger : MonoBehaviour {
 		image.texture = imageTexture;
 		this.data = data;
 	}
+
 	public bool isScreenTouched;
 	void Update () {
 
 		if (Input.GetMouseButtonDown (0))
 			isScreenTouched = true;
-		
-		//print (Input.mousePosition);
-
-		//if (data == null)
-		//	return;
 
 		if (Input.GetMouseButtonUp (0)) {
 			isScreenTouched = false;
@@ -65,5 +64,11 @@ public class UIDragger : MonoBehaviour {
 		draggerItem.transform.position = new Vector3 (1000, 0, 0);
 		image.enabled = false;
 		data = null;
+	}
+	public void OnDragOver(InstrumentData i)
+	{
+		if (data == null)
+			return;
+		print (i);
 	}
 }

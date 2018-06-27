@@ -11,6 +11,14 @@ public class LanesManager : MonoBehaviour {
 		foreach (Lane lane in lanes) 
 			lane.Init ();
 	}
+	public List<Lane> GetLanes(int id)
+	{
+		List<Lane> l = new List<Lane> ();
+		foreach (Lane lane in lanes)
+			if (lane.id == id)
+				l.Add( lane );
+		return l;
+	}
 	public Lane GetLane(int id)
 	{
 		foreach (Lane lane in lanes)

@@ -39,16 +39,11 @@ public class InstrumentsManager : MonoBehaviour {
 	public void AddInstrumentToSlot(InstrumentData data,  int laneID,int slotID)
 	{
 		int sequence = 0;
-		AddInstrumentToSlotReal (data, laneID, slotID);
-
-		sequence++;
-		//int duplicatedSlot = 4 / slotActive.slotSize;
-		//AddInstrumentToSlotReal (data, laneID*sequence, slotID+duplicatedSlot);	
-		AddInstrumentToSlotReal (data, laneID*sequence, slotID);
+		foreach (Lane lane in Board.Instance.lanesManager.GetLanes(laneID))
+			AddInstrumentToSlotReal (data, lane, slotID);
 	}
-	void AddInstrumentToSlotReal(InstrumentData data, int laneID, int slotID)
+	void AddInstrumentToSlotReal(InstrumentData data, Lane lanesManager, int slotID)
 	{
-		Lane lanesManager = Board.Instance.lanesManager.GetLane(laneID);
 		SlotsManager slotsManager = lanesManager.slotsManager;
 		Slot slot = slotsManager.GetSlot (slotID);		
 		Instrument instrument = Instantiate (Data.Instance.instruments.GetInstrumentByData(data));

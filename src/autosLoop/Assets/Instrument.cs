@@ -25,6 +25,9 @@ public class Instrument : MonoBehaviour {
 	}
 	void OnTriggerEnter(Collider other)
 	{
+		if (other.gameObject.name == "dragger")
+			Events.OnDragOver (data);
+		
 		if (other.gameObject.name != "TriggerCube" || playing)
 			return;
 
