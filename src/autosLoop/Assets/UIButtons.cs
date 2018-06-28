@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIButtons : MonoBehaviour {
 
@@ -9,6 +10,8 @@ public class UIButtons : MonoBehaviour {
 	public Transform buttonsContainer;
 	public UICameraButtons cameraButtons;
 	public List<UIButton> buttons;
+	public Slider slider;
+	public MusicManager musicManager;
 
 	void Start () {
 		cameraButtons.Init ();
@@ -35,6 +38,10 @@ public class UIButtons : MonoBehaviour {
 	public void ResetButtons()
 	{
 		Events.OnResetApp ();
+	}
+	public void OnSliderChange()
+	{
+		musicManager.ChangePitchValue (slider.value);
 	}
 
 }

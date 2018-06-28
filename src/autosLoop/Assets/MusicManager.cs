@@ -17,6 +17,8 @@ public class MusicManager : MonoBehaviour {
 	public AudioSource lane3AudioSource;
 	public AudioSource lane4AudioSource;
 
+	public Vector2 pitchValues;
+
 	public AudioSource uiAudioSource;
 
 	void Start()
@@ -93,6 +95,11 @@ public class MusicManager : MonoBehaviour {
 		audioSource.PlayOneShot(audioSource.clip);
 	}
 
+	public void ChangePitchValue(float value)
+	{
+		//value
+		//float newValue = pitchValues;
+	}
 
 
 }
