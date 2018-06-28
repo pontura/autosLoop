@@ -97,6 +97,12 @@ public class MusicManager : MonoBehaviour {
 
 	public void ChangePitchValue(float value)
 	{
+		value += 0.5f;
+
+		lane1AudioSource.pitch = value;
+		lane2AudioSource.pitch = value;
+		lane3AudioSource.pitch = value;
+		lane4AudioSource.pitch = value;
 		//value
 		//float newValue = pitchValues;
 	}

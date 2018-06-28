@@ -39,9 +39,34 @@ public class UIButtons : MonoBehaviour {
 	{
 		Events.OnResetApp ();
 	}
+	public float sliderValue;
+	void Update()
+	{		
+		if (sliderValue > 0.48f && sliderValue < 0.52f) {
+			sliderValue = 0.5f;
+			musicManager.ChangePitchValue (sliderValue);
+			Time.timeScale = slider.value + 0.5f;
+			return;
+		}
+		print (sliderValue);
+		if(!isChanging)
+			sliderValue = Mathf.Lerp (sliderValue, 0.5f, 0.05f);
+		musicManager.ChangePitchValue (sliderValue);
+		Time.timeScale = slider.value + 0.5f;
+		slider.value = sliderValue;
+	}
 	public void OnSliderChange()
 	{
-		musicManager.ChangePitchValue (slider.value);
+		sliderValue = slider.value;
+	}
+	bool isChanging;
+	public void OnSliderDown()
+	{
+		isChanging = true;
+	}
+	public void OnSliderUp()
+	{
+		isChanging = false;
 	}
 
 }
