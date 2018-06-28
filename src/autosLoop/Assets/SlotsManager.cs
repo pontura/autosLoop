@@ -31,9 +31,12 @@ public class SlotsManager : MonoBehaviour {
 				return slot;
 		return null;
 	}
-	public void ResetColliders()
+	public void ResetSlot(int slotID)
 	{
-		
+		foreach (Slot slot in all) {
+			if (slot.id == slotID)
+				slot.SetEmpty ();
+		}
 	}
 		
 }

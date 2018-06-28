@@ -24,12 +24,22 @@ public class MusicManager : MonoBehaviour {
 		Events.OnInstrumentActive += OnInstrumentActive;
 		Events.OnPick += OnPick;
 		Events.OnDrop += OnDrop;
+		Events.OnResetApp += OnResetApp;
 	}
 	void Destroy()
 	{
 		Events.OnInstrumentActive -= OnInstrumentActive;
 		Events.OnPick -= OnPick;
 		Events.OnDrop -= OnDrop;
+		Events.OnResetApp -= OnResetApp;
+	}
+	void OnResetApp()
+	{
+		lane1AudioSource.Stop ();
+		lane2AudioSource.Stop ();
+		lane3AudioSource.Stop ();
+		lane4AudioSource.Stop ();
+		uiAudioSource.Stop ();
 	}
 	void OnPick()
 	{
@@ -62,8 +72,8 @@ public class MusicManager : MonoBehaviour {
 	}
 	public void OnTimerTick()
 	{
-		float delayDouble = 0.4f;
-		float delaySingle = 0.4f;
+		float delayDouble = 0.2f;
+		float delaySingle = 0.2f;
 
 		if (lane1Sound != "")
 			StartCoroutine( PlayClip(delaySingle, lane1AudioSource, lane1Sound));

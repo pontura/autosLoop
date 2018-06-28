@@ -9,6 +9,7 @@ public class UIDragger : MonoBehaviour {
 	public RawImage image;
 	public Canvas myCanvas;
 	public GameObject draggerItem;
+	public UIButtons uiButtons;
 
 	void Start () {
 		Events.OnStartDragging += OnStartDragging;
@@ -18,12 +19,7 @@ public class UIDragger : MonoBehaviour {
 	void OnDestroy () {
 		Events.OnStartDragging -= OnStartDragging;
 		Events.OnDragOver -= OnDragOver;
-
 	}	
-	public void OnClickInstrumentInScene(InstrumentData data)
-	{
-		print ("OnClickInstrumentInScene " + data);
-	}
 	void OnStartDragging(InstrumentData data, RenderTexture imageTexture)
 	{
 		image.enabled = true;
@@ -34,8 +30,12 @@ public class UIDragger : MonoBehaviour {
 	public bool isScreenTouched;
 	void Update () {
 
-		if (Input.GetMouseButtonDown (0))
-			isScreenTouched = true;
+		if (Input.GetMouseButtonDown (0)) {
+			if (instrumentDragged != null) {
+				StartDraggingSceneObject ();
+				return;
+			}
+		}
 
 		if (Input.GetMouseButtonUp (0)) {
 			isScreenTouched = false;
@@ -65,10 +65,29 @@ public class UIDragger : MonoBehaviour {
 		image.enabled = false;
 		data = null;
 	}
-	public void OnDragOver(InstrumentData i)
+	public Instrument instrumentDragged;
+	public void OnDragOver(Instrument i, bool isOver)
 	{
-		if (data == null)
-			return;
-		print (i);
+		if (isOver)
+			instrumentDragged = i;
+		else
+			instrumentDragged = null;
+	}
+	void StartDraggingSceneObject()
+	{
+		RenderTexture rt = null;
+		InstrumentData data = null;
+		foreach( UIButton uiButton in uiButtons.buttons)
+		{
+			if (uiButton.data.id == instrumentDragged.data.id && uiButton.data.type == instrumentDragged.data.type) {
+				rt = (RenderTexture)uiButton.image.texture;
+				data = uiButton.data;
+			}
+		}
+		if (data != null) {
+			OnStartDragging (data, rt);
+			Events.OnRemoveInstrument (instrumentDragged);
+		}
+		instrumentDragged = null;
 	}
 }

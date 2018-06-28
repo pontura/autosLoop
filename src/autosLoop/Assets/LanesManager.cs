@@ -31,5 +31,12 @@ public class LanesManager : MonoBehaviour {
 		foreach (Lane lane in lanes)
 			lane.StartMoving ();
 	}
+	public void ResetSlots(int laneID, int slotID)
+	{
+		foreach (Lane lane in lanes) {
+			if (lane.id == laneID)
+				lane.slotsManager.ResetSlot (slotID);
+		}
+	}
 
 }

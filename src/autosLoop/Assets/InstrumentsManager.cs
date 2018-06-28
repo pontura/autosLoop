@@ -4,18 +4,33 @@ using UnityEngine;
 
 public class InstrumentsManager : MonoBehaviour {
 
-	public List<InstrumentData> instrumets;
 	Slot slotActive;
+	public List<Instrument> all;
+	LanesManager lanesManager;
 
 	void Start()
 	{
 		Events.OnActivateSlotWithInstrument += OnActivateSlotWithInstrument;
+		Events.OnRemoveInstrument += OnRemoveInstrument;
 		Events.OnAddInstrument += OnAddInstrument;
+		Events.OnResetApp += OnResetApp;
+		lanesManager = GetComponent< LanesManager> ();
 	}
 	void OnDestroy()
 	{
 		Events.OnActivateSlotWithInstrument -= OnActivateSlotWithInstrument;
+		Events.OnRemoveInstrument -= OnRemoveInstrument;
 		Events.OnAddInstrument -= OnAddInstrument;
+		Events.OnResetApp -= OnResetApp;
+	}
+	void OnResetApp()
+	{
+		foreach (Instrument i in all) {
+			lanesManager.ResetSlots (i.laneID, i.slotID);
+			Destroy (i.gameObject);
+		}
+
+		all.Clear ();
 	}
 	void OnActivateSlotWithInstrument(Slot slot)
 	{
@@ -25,18 +40,19 @@ public class InstrumentsManager : MonoBehaviour {
 	{
 		if (slotActive == null)
 			return;
-
-		//agrega 2 por lane:
-		int slotID = slotActive.id;
-		//int duplicatedSlot = 4 / slotActive.slotSize;
-		//if (slotID >= duplicatedSlot)
-		//	slotID -= duplicatedSlot;
 		
+		int slotID = slotActive.id;
 		AddInstrumentToSlot (data, slotActive.laneID, slotID);
 
 		slotActive = null;
 	}
 	public void AddInstrumentToSlot(InstrumentData data,  int laneID,int slotID)
+	{
+		int sequence = 0;
+		foreach (Lane lane in Board.Instance.lanesManager.GetLanes(laneID))
+			AddInstrumentToSlotReal (data, lane, slotID);
+	}
+	public void RemoveInstrument(InstrumentData data,  int laneID,int slotID)
 	{
 		int sequence = 0;
 		foreach (Lane lane in Board.Instance.lanesManager.GetLanes(laneID))
@@ -51,7 +67,35 @@ public class InstrumentsManager : MonoBehaviour {
 		instrument.transform.localPosition = new Vector3 (0, 0, -1);
 		instrument.transform.localEulerAngles = Vector3.zero;
 		instrument.transform.localScale = slot.transform.localScale;
-		instrument.Init (lanesManager.id);
+		instrument.Init (lanesManager.id, slot.id);
 		slot.SetInstrument( instrument );
+		all.Add (instrument);
+	}
+	void OnRemoveInstrument(Instrument i)
+	{
+		List<Instrument> allToRemove = new List<Instrument> ();
+
+		int otherInstrumentSlotID = 0;
+
+		if (i.slotID < 8)
+			otherInstrumentSlotID = i.slotID + 8;
+		else
+			otherInstrumentSlotID = i.slotID - 8;
+		
+		foreach(Instrument instrument in all)
+		{
+			if (instrument.laneID == i.laneID && (instrument.slotID == i.slotID || instrument.slotID == otherInstrumentSlotID))
+				allToRemove.Add (instrument);
+		}
+
+		all.Remove (allToRemove[0]);
+		all.Remove (allToRemove[1]);
+
+
+
+		lanesManager.ResetSlots (i.laneID, i.slotID);
+
+		GameObject.Destroy( allToRemove[0].gameObject );
+		GameObject.Destroy( allToRemove[1].gameObject );
 	}
 }

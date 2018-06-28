@@ -16,12 +16,6 @@ public class Slot : MonoBehaviour {
 		this.id = id;
 		RollOver (false);
 	}
-	void OnMouseDown()
-	{
-		print ("SI" + instrument);
-		if(instrument != null)
-			Board.Instance.uiDragger.OnClickInstrumentInScene (instrument.data);
-	}
 	void OnTriggerEnter(Collider other)
 	{		
 		if (other.name == "dragger") {
@@ -40,20 +34,17 @@ public class Slot : MonoBehaviour {
 	{
 		if (!IsCompatible() || HasInstrument ())
 			return;
-		Color c = spriteRenderer.color;
-
-		if (isOver) 
-			c.a = 0.5f;
-		else
-			c.a = 1;
-			
-		spriteRenderer.color = c;
 	}
 	public void SetInstrument(Instrument instrument)
 	{
 		RollOver (false);
 		this.instrument = instrument;
 		GetComponent<Collider> ().enabled = false;
+	}
+	public void SetEmpty()
+	{
+		instrument = null;
+		GetComponent<Collider> ().enabled = true;
 	}
 	public bool HasInstrument()
 	{

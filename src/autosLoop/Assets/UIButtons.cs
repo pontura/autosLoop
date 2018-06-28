@@ -5,8 +5,10 @@ using UnityEngine;
 public class UIButtons : MonoBehaviour {
 
 	public UIButton button;
+	public UIButton buttonBig;
 	public Transform buttonsContainer;
 	public UICameraButtons cameraButtons;
+	public List<UIButton> buttons;
 
 	void Start () {
 		cameraButtons.Init ();
@@ -18,11 +20,21 @@ public class UIButtons : MonoBehaviour {
 		int id = 0;
 		foreach(Instrument instrument in all)
 		{
-			UIButton newButton = Instantiate (button);
+			UIButton newButton;
+			if(instrument.data.size == 1)
+				newButton= Instantiate (button);
+			else
+				newButton= Instantiate (buttonBig);
+			
 			newButton.transform.SetParent (buttonsContainer);
 			newButton.Init(instrument.data, cameraButtons.all[id].renderTexture);
+			buttons.Add(newButton);
 			id++;
 		}
+	}
+	public void ResetButtons()
+	{
+		Events.OnResetApp ();
 	}
 
 }

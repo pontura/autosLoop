@@ -6,17 +6,25 @@ public class Instrument : MonoBehaviour {
 
 	public InstrumentData data;
 	public int laneID;
+	public int slotID;
 	bool playing;
 	Collider collider;
+	public InstrumentToDrag instrumentToDrag;
 
+	void Awake()
+	{
+		instrumentToDrag.SetState (false);
+	}
 	void Start()
 	{
 		this.collider = GetComponent<Collider> ();
 	}
-	public void Init(int laneID)
+	public void Init(int laneID, int slotID)
 	{
+		instrumentToDrag.SetState (true);
 		this.laneID = laneID;
-
+		this.slotID = slotID;
+		instrumentToDrag.SetState (true);
 	}
 	public void ResetColliderWhenOutOfScreen()
 	{
@@ -24,17 +32,14 @@ public class Instrument : MonoBehaviour {
 		Invoke ("Reset", 3);
 	}
 	void OnTriggerEnter(Collider other)
-	{
-		if (other.gameObject.name == "dragger")
-			Events.OnDragOver (data);
-		
+	{		
 		if (other.gameObject.name != "TriggerCube" || playing)
 			return;
 
-		Invoke ("Reset", 3);
+		Invoke ("Reset", 4);
 		playing = true;
 		Events.OnInstrumentActive (data, laneID);
-		Invoke("PlayAnim", 0.8f);
+		Invoke("PlayAnim", 0.6f);
 	}
 	public void PlayAnim()
 	{
