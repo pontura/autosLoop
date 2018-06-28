@@ -148,5 +148,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   container: {fileID: 4803358207050270}
   id: 0
-  renderTexture: {fileID: 0}
+  renderTexture: {fileID: 8400000, guid: 97b2605fdae3b534e89162a32d68933d, type: 2}
   cam: {fileID: 20809626388283246}

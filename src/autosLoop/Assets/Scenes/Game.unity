@@ -2407,14 +2407,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114331957709063138, guid: bb34ad80d270f0b4591246f07465a650,
-        type: 2}
-      propertyPath: renderTexture
-      value: 
-      objectReference: {fileID: 8400000, guid: 512e2e06c92ff994082ee7025e7d498e, type: 2}
     - target: {fileID: 1647891307039522, guid: bb34ad80d270f0b4591246f07465a650, type: 2}
       propertyPath: m_Name
       value: UIButtonAsset
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647891307039522, guid: bb34ad80d270f0b4591246f07465a650, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bb34ad80d270f0b4591246f07465a650, type: 2}
