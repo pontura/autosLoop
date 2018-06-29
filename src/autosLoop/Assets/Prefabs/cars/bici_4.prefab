@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 198411621944192102}
   - component: {fileID: 199886096432509262}
   m_Layer: 0
-  m_Name: On
+  m_Name: magic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -332,7 +332,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1415513748742618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.3566184, y: -0.04132867, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4090141063119206}
@@ -519,7 +519,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 24524064
+  randomSeed: -2083598123
   InitialModule:
     serializedVersion: 3
     enabled: 1
