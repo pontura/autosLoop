@@ -198,9 +198,59 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 198613099458061758, guid: 3f9528f42d14c9f4fb0272f3bf321dc2,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1767916851
+      objectReference: {fileID: 0}
+    - target: {fileID: 198613099458061758, guid: 3f9528f42d14c9f4fb0272f3bf321dc2,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198409417099989126, guid: 3f9528f42d14c9f4fb0272f3bf321dc2,
+        type: 2}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198613099458061758, guid: 3f9528f42d14c9f4fb0272f3bf321dc2,
+        type: 2}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198409417099989126, guid: 3f9528f42d14c9f4fb0272f3bf321dc2,
+        type: 2}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198409417099989126, guid: 3f9528f42d14c9f4fb0272f3bf321dc2,
+        type: 2}
+      propertyPath: randomSeed
+      value: -1378376953
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3f9528f42d14c9f4fb0272f3bf321dc2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &366364778 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1481225358256392, guid: 3f9528f42d14c9f4fb0272f3bf321dc2,
+    type: 2}
+  m_PrefabInternal: {fileID: 366364777}
+--- !u!111 &366364779
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 366364778}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 9e7f811a2a82ddb47b4f35ae9c45abf4, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &399459041
 GameObject:
   m_ObjectHideFlags: 0
