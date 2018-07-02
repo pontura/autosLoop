@@ -253,7 +253,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1552883872533036}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.19, y: 0.9645966, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4149143030608102}
@@ -445,6 +445,7 @@ MonoBehaviour:
     spriteName: auto4
     audioName: loop_autito_4
   laneID: 0
+  slotID: 0
   instrumentToDrag: {fileID: 114880474572791628}
 --- !u!114 &114880474572791628
 MonoBehaviour:

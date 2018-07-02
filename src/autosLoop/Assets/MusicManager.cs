@@ -20,6 +20,7 @@ public class MusicManager : MonoBehaviour {
 	public Vector2 pitchValues;
 
 	public AudioSource uiAudioSource;
+	public AudioSource FXAudioSource;
 
 	void Start()
 	{
@@ -27,6 +28,7 @@ public class MusicManager : MonoBehaviour {
 		Events.OnPick += OnPick;
 		Events.OnDrop += OnDrop;
 		Events.OnResetApp += OnResetApp;
+		Events.OnFXOn += OnFXOn;
 	}
 	void Destroy()
 	{
@@ -34,6 +36,7 @@ public class MusicManager : MonoBehaviour {
 		Events.OnPick -= OnPick;
 		Events.OnDrop -= OnDrop;
 		Events.OnResetApp -= OnResetApp;
+		Events.OnFXOn -= OnFXOn;
 	}
 	void OnResetApp()
 	{
@@ -105,6 +108,16 @@ public class MusicManager : MonoBehaviour {
 		lane4AudioSource.pitch = value;
 		//value
 		//float newValue = pitchValues;
+	}
+	void OnFXOn(int id)
+	{
+		if(id==1)
+			FXAudioSource.clip = Resources.Load<AudioClip>("Audio/fx_viento");
+		else if(id==2)
+			FXAudioSource.clip = Resources.Load<AudioClip>("Audio/fx_glitch");
+		else if(id==3)
+			FXAudioSource.clip = Resources.Load<AudioClip>("Audio/fx_magia");
+		FXAudioSource.PlayOneShot(FXAudioSource.clip);
 	}
 
 

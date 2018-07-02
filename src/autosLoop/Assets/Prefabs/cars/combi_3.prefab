@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 4533848930927256}
   - component: {fileID: 65480076915928332}
   - component: {fileID: 95406394957296296}
+  - component: {fileID: 114174801815136396}
   m_Layer: 0
   m_Name: combi_3
   m_TagString: Untagged
@@ -426,6 +427,26 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114174801815136396
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1283200523639060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac215d7b95151864c8ab54dc059580be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    id: 13
+    type: 1
+    size: 1
+    spriteName: 
+    audioName: loop_combi_3
+  laneID: 0
+  slotID: 0
+  instrumentToDrag: {fileID: 0}
 --- !u!114 &114215700052610378
 MonoBehaviour:
   m_ObjectHideFlags: 1

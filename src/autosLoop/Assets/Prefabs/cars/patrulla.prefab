@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 4149681160783452}
   - component: {fileID: 65142901244723640}
   - component: {fileID: 95782492081131228}
+  - component: {fileID: 114707060112728536}
   m_Layer: 0
   m_Name: patrulla
   m_TagString: Untagged
@@ -487,6 +488,26 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114707060112728536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1861337787776346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac215d7b95151864c8ab54dc059580be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data:
+    id: 8
+    type: 1
+    size: 1
+    spriteName: 
+    audioName: loop_patrulla
+  laneID: 0
+  slotID: 0
+  instrumentToDrag: {fileID: 114899407796536178}
 --- !u!114 &114899407796536178
 MonoBehaviour:
   m_ObjectHideFlags: 1

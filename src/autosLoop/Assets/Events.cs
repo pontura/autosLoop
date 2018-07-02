@@ -12,4 +12,5 @@ public static class Events {
 	public static System.Action OnPick = delegate { };
 	public static System.Action OnDrop = delegate { };
 	public static System.Action OnResetApp = delegate { };
+	public static System.Action<int> OnFXOn = delegate { };
 }

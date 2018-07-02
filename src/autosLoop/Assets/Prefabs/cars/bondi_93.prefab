@@ -82,9 +82,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4734953294269068}
+  - component: {fileID: 95071923425009014}
   - component: {fileID: 114909604026814886}
   - component: {fileID: 65553235282975988}
-  - component: {fileID: 95071923425009014}
   m_Layer: 0
   m_Name: bondi_93
   m_TagString: Untagged
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data:
-    id: 1
+    id: 5
     type: 2
     size: 2
     spriteName: bondi1

@@ -441,7 +441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
     id: 4
-    type: 0
+    type: 1
     size: 1
     spriteName: 
     audioName: loop_bici_4

@@ -68,5 +68,9 @@ public class UIButtons : MonoBehaviour {
 	{
 		isChanging = false;
 	}
+	public void OnFXClicked()
+	{
+		Events.OnFXOn (Random.Range (1, 4));
+	}
 
 }
