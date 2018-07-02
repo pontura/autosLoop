@@ -10,6 +10,7 @@ public class UIDragger : MonoBehaviour {
 	public Canvas myCanvas;
 	public GameObject draggerItem;
 	public UIButtons uiButtons;
+	public Text field;
 
 	void Start () {
 		Events.OnStartDragging += OnStartDragging;
@@ -27,32 +28,54 @@ public class UIDragger : MonoBehaviour {
 		this.data = data;
 	}
 
+	public float timeStartedDragging;
 	public bool isScreenTouched;
+	Vector3 mousePos;
+
 	void Update () {
-
-		if (Input.GetMouseButtonDown (0)) {
-			if (instrumentDragged != null) {
-				StartDraggingSceneObject ();
-				return;
+		if (Data.Instance.control == Data.controls.MOUSE) {
+			if (Input.GetMouseButtonDown (0))
+				OnPress ();
+			else if (Input.GetMouseButtonUp (0))
+				OnRelease ();
+			mousePos = Input.mousePosition;
+		} else  {
+			if (Input.touchCount > 0) {
+				if (Input.GetTouch(0).phase == TouchPhase.Began)
+					OnPress ();
+				if (Input.GetTouch(0).phase == TouchPhase.Ended)
+					OnRelease ();
 			}
+			mousePos = Input.GetTouch(0).position;
 		}
-
-		if (Input.GetMouseButtonUp (0)) {
-			isScreenTouched = false;
-			Release ();
-			return;
-		}
-
-		Vector3 mousePos = Input.mousePosition;
 		mousePos.z = 1;
-		draggerItem.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
+		draggerItem.transform.position = Camera.main.ScreenToWorldPoint (mousePos);
 
 		Vector2 pos;
-		RectTransformUtility.ScreenPointToLocalPointInRectangle(myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
-		image.transform.position = myCanvas.transform.TransformPoint(pos);
+		RectTransformUtility.ScreenPointToLocalPointInRectangle (myCanvas.transform as RectTransform, Input.mousePosition, myCanvas.worldCamera, out pos);
+		image.transform.position = myCanvas.transform.TransformPoint (pos);
+
+	}
+	void OnPress()
+	{
+		field.text = "P " + Time.time;
+		Invoke("StartDraggingSceneObject", 0.05f);
+	}
+	void OnRelease()
+	{
+		field.text = "_R " + Time.time;
+		draggerItem.transform.position = new Vector3 (1000, draggerItem.transform.position.y, draggerItem.transform.position.z);
+
+		if (Time.time < timeStartedDragging + 0.1f)
+			return;
+		
+		isScreenTouched = false;
+		Release ();
 	}
 	void Release()
 	{
+		instrumentDragged = null;
+
 		if (data == null)
 			return;
 		
@@ -61,22 +84,29 @@ public class UIDragger : MonoBehaviour {
 
 		Events.OnDrop ();
 
-		draggerItem.transform.position = new Vector3 (1000, 0, 0);
 		image.enabled = false;
 		data = null;
 	}
 	public Instrument instrumentDragged;
-	public void OnDragOver(Instrument i, bool isOver)
+	InstrumentToDrag draggedItem;
+	public void OnDragOver(Instrument i, bool isOver, InstrumentToDrag _draggedItem)
 	{
-		if (isOver)
+		
+		if (isOver) {
 			instrumentDragged = i;
-		else
+			this.draggedItem = _draggedItem;
+		}
+		else if(instrumentDragged != null && _draggedItem == this.draggedItem)
 			instrumentDragged = null;
 	}
 	void StartDraggingSceneObject()
 	{
 		RenderTexture rt = null;
 		InstrumentData data = null;
+		if (instrumentDragged == null)
+			return;
+
+		timeStartedDragging = Time.time;
 		foreach( UIButton uiButton in uiButtons.buttons)
 		{
 			if (uiButton.data.id == instrumentDragged.data.id && uiButton.data.type == instrumentDragged.data.type) {
@@ -88,6 +118,6 @@ public class UIDragger : MonoBehaviour {
 			OnStartDragging (data, rt);
 			Events.OnRemoveInstrument (instrumentDragged);
 		}
-		instrumentDragged = null;
+
 	}
 }

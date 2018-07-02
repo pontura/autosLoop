@@ -476,7 +476,7 @@ Transform:
   m_GameObject: {fileID: 1097477257975190}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.11, z: 0}
-  m_LocalScale: {x: 4.04, y: 2.28, z: 1}
+  m_LocalScale: {x: 4.04, y: 1.52, z: 1}
   m_Children: []
   m_Father: {fileID: 4168481828625536}
   m_RootOrder: 4
@@ -596,6 +596,7 @@ MonoBehaviour:
     spriteName: bondi2
     audioName: loop_bondi_22
   laneID: 0
+  slotID: 0
   instrumentToDrag: {fileID: 114686343622904042}
 --- !u!114 &114686343622904042
 MonoBehaviour:

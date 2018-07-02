@@ -7,6 +7,8 @@ public class InstrumentsManager : MonoBehaviour {
 	Slot slotActive;
 	public List<Instrument> all;
 	LanesManager lanesManager;
+	public GameObject clear_car;
+	public GameObject clear_bondi;
 
 	void Start()
 	{
@@ -14,6 +16,7 @@ public class InstrumentsManager : MonoBehaviour {
 		Events.OnRemoveInstrument += OnRemoveInstrument;
 		Events.OnAddInstrument += OnAddInstrument;
 		Events.OnResetApp += OnResetApp;
+		Events.OnAddExplotion += OnAddExplotion;
 		lanesManager = GetComponent< LanesManager> ();
 	}
 	void OnDestroy()
@@ -22,14 +25,14 @@ public class InstrumentsManager : MonoBehaviour {
 		Events.OnRemoveInstrument -= OnRemoveInstrument;
 		Events.OnAddInstrument -= OnAddInstrument;
 		Events.OnResetApp -= OnResetApp;
+		Events.OnAddExplotion -= OnAddExplotion;
 	}
 	void OnResetApp()
 	{
 		foreach (Instrument i in all) {
 			lanesManager.ResetSlots (i.laneID, i.slotID);
-			Destroy (i.gameObject);
+			i.ClearInstrument ();
 		}
-
 		all.Clear ();
 	}
 	void OnActivateSlotWithInstrument(Slot slot)
@@ -97,5 +100,14 @@ public class InstrumentsManager : MonoBehaviour {
 
 		GameObject.Destroy( allToRemove[0].gameObject );
 		GameObject.Destroy( allToRemove[1].gameObject );
+	}
+	void OnAddExplotion(Vector3 pos, int laneID)
+	{
+		GameObject explotion = clear_car;
+		if (laneID == 4)
+			explotion = clear_bondi;
+		GameObject go = Instantiate (explotion);
+		go.transform.position = pos;
+			
 	}
 }

@@ -10,13 +10,13 @@ public class InstrumentToDrag : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.name == "dragger") {
-			Events.OnDragOver (GetComponentInParent<Instrument> (), true);
+			Events.OnDragOver (GetComponentInParent<Instrument> (), true, this);
 		}
 	}
 	void OnTriggerExit(Collider other)
 	{
 		if (other.gameObject.name == "dragger") {
-			Events.OnDragOver (GetComponentInParent<Instrument> (), false);
+			Events.OnDragOver (GetComponentInParent<Instrument> (), false, this);
 		}
 	}
 }

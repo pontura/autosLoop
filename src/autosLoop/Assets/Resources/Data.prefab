@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instruments: {fileID: 114630980807721206}
+  control: 0
 --- !u!114 &114630980807721206
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -73,6 +74,8 @@ MonoBehaviour:
   - {fileID: 114246209189148256, guid: 315f528380f4c354f8495ec884083cb8, type: 2}
   - {fileID: 114522239063987364, guid: 1af2f8ea85ab2f94fbf13b6f2afa6f80, type: 2}
   - {fileID: 114808529243114250, guid: 122d4a453ad495e40a1b1c85a1a4ff5a, type: 2}
+  - {fileID: 114240381328514290, guid: 8389ad5c0b493d247914ec2752cdad5e, type: 2}
+  - {fileID: 114909604026814886, guid: ff0a395bf482d864ab6b53a3d8235be9, type: 2}
   - {fileID: 114678409939258054, guid: 15166011fe438ad4981140b7062c3f60, type: 2}
   - {fileID: 114648320365851744, guid: 2f1bd0aee3317fb46bbb333e8144b5db, type: 2}
   - {fileID: 114135572710965984, guid: df5c28318319dca418bd542b3181a4d1, type: 2}
@@ -80,3 +83,6 @@ MonoBehaviour:
   - {fileID: 114004744253361138, guid: e793e84f18b86ef479a39e55e9542152, type: 2}
   - {fileID: 114162344777172782, guid: d034f5364650c11498a5b91c530b0c50, type: 2}
   - {fileID: 114298237341158508, guid: 8d1bb6683fba95840b018e2ef0ab6342, type: 2}
+  - {fileID: 114377812243751738, guid: c6a6e9d14056f6b46861ee681279c9f7, type: 2}
+  - {fileID: 114229308045093768, guid: 730d89e6dac33764eb87d0141040c504, type: 2}
+  - {fileID: 114707060112728536, guid: b203db3d1cff57444a544ee92e4ec391, type: 2}

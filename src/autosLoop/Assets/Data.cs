@@ -7,6 +7,14 @@ public class Data : MonoBehaviour
 	public InstrumentsData instruments;
     static Data mInstance = null;
 
+	public controls control;
+
+	public enum controls
+	{
+		MOUSE,
+		TOUCH
+	}
+
     public static Data Instance
     {
         get

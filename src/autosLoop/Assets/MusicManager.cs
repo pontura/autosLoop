@@ -6,6 +6,7 @@ public class MusicManager : MonoBehaviour {
 
 	public AudioClip pick;
 	public AudioClip drop;
+	public AudioClip clear;
 
 	public string lane1Sound;
 	public string lane2Sound;
@@ -29,6 +30,7 @@ public class MusicManager : MonoBehaviour {
 		Events.OnDrop += OnDrop;
 		Events.OnResetApp += OnResetApp;
 		Events.OnFXOn += OnFXOn;
+		Events.OnAddExplotion += OnAddExplotion;
 	}
 	void Destroy()
 	{
@@ -37,6 +39,7 @@ public class MusicManager : MonoBehaviour {
 		Events.OnDrop -= OnDrop;
 		Events.OnResetApp -= OnResetApp;
 		Events.OnFXOn -= OnFXOn;
+		Events.OnAddExplotion += OnAddExplotion;
 	}
 	void OnResetApp()
 	{
@@ -45,6 +48,10 @@ public class MusicManager : MonoBehaviour {
 		lane3AudioSource.Stop ();
 		lane4AudioSource.Stop ();
 		uiAudioSource.Stop ();
+	}
+	void OnAddExplotion(Vector3 pos, int id)
+	{
+		PlayUISFX (clear);
 	}
 	void OnPick()
 	{

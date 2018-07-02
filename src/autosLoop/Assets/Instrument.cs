@@ -58,5 +58,14 @@ public class Instrument : MonoBehaviour {
 	{
 		GetComponent<Animator> ().Play ("idle");
 	}
+	public void ClearInstrument()
+	{
+		Invoke ("Done", (float)Random.Range (1, 20) / 20);
+	}
+	void Done()
+	{
+		Destroy (this.gameObject);
+		Events.OnAddExplotion (transform.position, laneID);
+	}
 
 }
