@@ -505,7 +505,7 @@ MonoBehaviour:
     type: 2
     size: 2
     spriteName: bondi1
-    audioName: loop_bondi_10
+    audioName: loop_bondi_102
   laneID: 0
   slotID: 0
   instrumentToDrag: {fileID: 114967252395191198}

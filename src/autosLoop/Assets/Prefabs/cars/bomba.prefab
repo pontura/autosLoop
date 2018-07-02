@@ -653,7 +653,7 @@ MonoBehaviour:
     type: 1
     size: 1
     spriteName: 
-    audioName: 
+    audioName: loop_bomba
   laneID: 0
   slotID: 0
   instrumentToDrag: {fileID: 114557701607395200}
