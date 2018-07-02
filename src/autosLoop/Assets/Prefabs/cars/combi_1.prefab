@@ -457,7 +457,7 @@ MonoBehaviour:
     audioName: loop_combi_1
   laneID: 0
   slotID: 0
-  instrumentToDrag: {fileID: 0}
+  instrumentToDrag: {fileID: 114468001841117482}
 --- !u!198 &198091304531333102
 ParticleSystem:
   m_ObjectHideFlags: 1
